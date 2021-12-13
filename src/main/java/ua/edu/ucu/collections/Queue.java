@@ -5,7 +5,7 @@ import ua.edu.ucu.collections.immutable.ImmutableLinkedList;
 public class Queue {
     private ImmutableLinkedList content;
 
-    public Queue(){
+    public Queue() {
         this.content = new ImmutableLinkedList();
     }
 
