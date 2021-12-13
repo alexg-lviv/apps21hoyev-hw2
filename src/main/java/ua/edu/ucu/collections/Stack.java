@@ -6,7 +6,7 @@ public class Stack {
 
     private ImmutableLinkedList content;
 
-    public Stack(){
+    public Stack() {
         this.content = new ImmutableLinkedList();
     }
 
