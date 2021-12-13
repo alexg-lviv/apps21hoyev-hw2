@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 public final class ImmutableArrayList implements ImmutableList {
     private final Object[] elements;
+
     public ImmutableArrayList(Object[] elements) {
         this.elements = elements;
     }
@@ -14,21 +15,20 @@ public final class ImmutableArrayList implements ImmutableList {
 
     @Override
     public ImmutableList add(Object e) {
-        Object[] res = Arrays.copyOf(elements, elements.length+1);
+        Object[] res = Arrays.copyOf(elements, elements.length + 1);
         res[elements.length] = e;
         return new ImmutableArrayList(res);
     }
 
     @Override
     public ImmutableList add(int index, Object e) {
-        Object[] res = new Object[elements.length+1];
+        Object[] res = new Object[elements.length + 1];
         int j = 0;
-        for(int i=0; i < res.length; i++){
-            if(i != index){
+        for (int i = 0; i < res.length; i++) {
+            if (i != index) {
                 res[i] = elements[j];
                 j += 1;
-            }
-            else {
+            } else {
                 res[i] = e;
             }
         }
@@ -37,26 +37,25 @@ public final class ImmutableArrayList implements ImmutableList {
 
     @Override
     public ImmutableList addAll(Object[] c) {
-        Object[] res = Arrays.copyOf(elements, elements.length+c.length);
-        for(int i = 0; i < c.length; i++){
-            res[i+ elements.length] = c[i];
+        Object[] res = Arrays.copyOf(elements, elements.length + c.length);
+        for (int i = 0; i < c.length; i++) {
+            res[i + elements.length] = c[i];
         }
         return new ImmutableArrayList(res);
     }
 
     @Override
     public ImmutableList addAll(int index, Object[] c) {
-        Object[] res = new Object[elements.length+c.length];
+        Object[] res = new Object[elements.length + c.length];
         int j = 0;
         int z = 0;
-        for(int i=0; i < res.length; i++){
-            if(i != index){
-                res[i+z] = elements[j];
+        for (int i = 0; i < res.length; i++) {
+            if (i != index) {
+                res[i + z] = elements[j];
                 j += 1;
-            }
-            else {
-                for(; z < c.length; z++){
-                    res[i+z] = c[z];
+            } else {
+                for (; z < c.length; z++) {
+                    res[i + z] = c[z];
                 }
             }
         }
@@ -70,10 +69,10 @@ public final class ImmutableArrayList implements ImmutableList {
 
     @Override
     public ImmutableList remove(int index) {
-        Object[] res = new Object[elements.length-1];
-        int j=0;
-        for(int i=0; i < res.length; i++){
-            if(i != index){
+        Object[] res = new Object[elements.length - 1];
+        int j = 0;
+        for (int i = 0; i < res.length; i++) {
+            if (i != index) {
                 res[j] = elements[i];
                 j += 1;
             }
@@ -84,11 +83,10 @@ public final class ImmutableArrayList implements ImmutableList {
     @Override
     public ImmutableList set(int index, Object e) {
         Object[] res = new Object[elements.length];
-        for(int i=0; i < res.length; i++){
-            if(i != index){
+        for (int i = 0; i < res.length; i++) {
+            if (i != index) {
                 res[i] = elements[i];
-            }
-            else{
+            } else {
                 res[i] = e;
             }
         }
@@ -97,8 +95,8 @@ public final class ImmutableArrayList implements ImmutableList {
 
     @Override
     public int indexOf(Object e) {
-        for(int i=0; i < elements.length; i++){
-            if(elements[i] == e){
+        for (int i = 0; i < elements.length; i++) {
+            if (elements[i] == e) {
                 return i;
             }
         }
@@ -117,7 +115,7 @@ public final class ImmutableArrayList implements ImmutableList {
 
     @Override
     public boolean isEmpty() {
-        if(elements.length == 0){
+        if (elements.length == 0) {
             return true;
         }
         return false;

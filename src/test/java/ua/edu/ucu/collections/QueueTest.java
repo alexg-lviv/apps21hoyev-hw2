@@ -2,10 +2,12 @@ package ua.edu.ucu.collections;
 
 import org.junit.Before;
 import org.junit.Test;
+
 import static org.junit.Assert.*;
 
 public class QueueTest {
     Queue queue;
+
     @Before
     public void setUp() {
         queue = new Queue();
